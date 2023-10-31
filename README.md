@@ -10,7 +10,7 @@ Built with Godot 4
 Player controls sprite on screen
 
 ## References
-Provided by professor 
+Character and background assets provided by professor 
 
 ## Future Development
 
