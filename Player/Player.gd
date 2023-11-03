@@ -41,3 +41,8 @@ func _physics_process(delta):
 		
 		
 	move_and_slide()
+
+
+func _on_coin_collector_body_entered(body):
+	if body.name == "$Coins":
+		body.get_coin(global_position)
