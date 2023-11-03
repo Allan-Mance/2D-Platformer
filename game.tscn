@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bhrt1ggmoa4d6"]
+[gd_scene load_steps=33 format=3 uid="uid://bhrt1ggmoa4d6"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_3qmfc"]
 [ext_resource type="Texture2D" uid="uid://dqc7qd1qymy48" path="res://Assets/tilemap-backgrounds_packed.png" id="1_n6ff5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c87hu5t4j0waq" path="res://Assets/Tiles.png" id="4_0rbng"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="5_8mbtu"]
 [ext_resource type="PackedScene" uid="uid://6ykcckl2l2c6" path="res://Enemy/wolf.tscn" id="6_wjpkr"]
+[ext_resource type="PackedScene" uid="uid://cupfiba6i60a6" path="res://Enemy/monster.tscn" id="7_g5ckm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65r55"]
 texture = ExtResource("1_n6ff5")
@@ -1235,3 +1236,6 @@ script = ExtResource("5_8mbtu")
 position = Vector2(50, 10)
 
 [node name="Wolf" parent="Enemy" instance=ExtResource("6_wjpkr")]
+
+[node name="Monster" parent="Enemy" instance=ExtResource("7_g5ckm")]
+position = Vector2(75, 11)

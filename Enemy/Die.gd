@@ -5,7 +5,6 @@ extends Node
 
 func _ready():
 	await enemy.ready
-	enemy.set_animation("Die")
 
 func start():
 	enemy.velocity = Vector2.ZERO

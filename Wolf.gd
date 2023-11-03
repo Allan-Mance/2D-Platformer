@@ -2,13 +2,13 @@ extends CharacterBody2D
 
 @onready var SM = $StateMachine
 
-@export var walking = 500
+@export var walking = 300
 @export var running = 500
 @export var jump = 1200
 var direction = 1
 
 func _ready():
-	velocity.x = running
+	velocity.x = -running
 	SM.set_state("Move")
 
 func _physics_process(_delta):
@@ -27,9 +27,6 @@ func set_animation(anim):
 	if $AnimatedSprite2D.sprite_frames.has_animation(anim): $AnimatedSprite2D.play(anim)
 	else: $AnimatedSprite2D.play()
 
-func damage():
-	if SM.state_name != "Die":
-		SM.set_state("Die")
 
 func attack_target():
 	if $Attack.is_colliding():
@@ -39,10 +36,4 @@ func attack_target():
 func _on_AnimatedSprite_animation_finished():
 	if SM.state_name == "Attack":
 		SM.set_state("Move")
-	if SM.state_name == "Die":
-		queue_free()
 
-
-func _on_Above_and_Below_body_entered(body):
-	if body.name == "Player" and SM.state_name != "Die":
-		body.die()
