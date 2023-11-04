@@ -27,6 +27,9 @@ func set_animation(anim):
 	if $AnimatedSprite2D.sprite_frames.has_animation(anim): $AnimatedSprite2D.play(anim)
 	else: $AnimatedSprite2D.play()
 
+func damage(d):
+	queue_free()
+
 
 func attack_target():
 	if $Attack.is_colliding():

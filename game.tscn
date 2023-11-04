@@ -1250,6 +1250,16 @@ collision_mask = 8
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_yo3wn")
 
+[node name="Attack_Right" type="RayCast2D" parent="Player"]
+target_position = Vector2(30, 2.08165e-12)
+
+[node name="Attack_Left" type="RayCast2D" parent="Player"]
+target_position = Vector2(-30, 2.08165e-12)
+
+[node name="Attack" type="Timer" parent="Player"]
+wait_time = 0.5
+one_shot = true
+
 [node name="Platform" type="TileMap" parent="."]
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_fbjpt")
@@ -1263,6 +1273,9 @@ format = 2
 layer_0/tile_data = PackedInt32Array(196620, 655360, 2, 196638, 720896, 2, 196649, 589824, 3, 262141, 720896, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_bottom = 380
 script = ExtResource("5_8mbtu")
 
 [node name="Enemy" type="Node2D" parent="."]
@@ -1274,3 +1287,4 @@ position = Vector2(50, 10)
 position = Vector2(75, 11)
 
 [connection signal="body_entered" from="Player/Coin_Collector" to="Player" method="_on_coin_collector_body_entered"]
+[connection signal="timeout" from="Player/Attack" to="Player" method="_on_attack_timeout"]
